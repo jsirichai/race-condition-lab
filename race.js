@@ -6,6 +6,5 @@ if (cluster.isMaster) {
     cluster.fork();
   }
 } else {
-  console.log(1);
   axios.post("http://localhost:3000/redeem", { promocode: "NEW50" });
 }

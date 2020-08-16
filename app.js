@@ -19,12 +19,12 @@ app.post("/redeem", async (req, res) => {
   );
 
   if (result.length > 0) {
-    // อัพเดท point
+    // อัปเดต point
     await db.query("UPDATE user SET point = point + ? WHERE user_id = 1", [
       result[0].value,
     ]);
 
-    // อัพเดทว่าสถานะว่าเติมไปแล้ว
+    // อัปเดต ว่าสถานะว่าเติมไปแล้ว
     await db.query("UPDATE code SET status = 1 WHERE promocode = ? ", [
       promocode,
     ]);
